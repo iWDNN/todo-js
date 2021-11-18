@@ -6,3 +6,5 @@
 2. todo-list
 3. quotes
 4. weather
+
+https://cocky-newton-82dd7a.netlify.app/

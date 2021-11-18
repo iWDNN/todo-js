@@ -10,8 +10,7 @@ function _saveToDos() {
   localStorage.setItem(TODOS_KEY, JSON.stringify(toDos))
 }
 
-function _cmpToggle(li) {
-  li.classList.toggle('completed')
+function _cmpCheck(li) {
   if (li.classList.contains('completed')) {
     toDos.forEach(todo => {
       if (todo.id == li.id)
@@ -37,14 +36,20 @@ function _paintToDo(newTodo) {
       X
     </button>
   `
-  _cmpToggle(li)
+  if (newTodo.completed) {
+    li.classList.add('completed')
+  } else
+    li.classList.remove('completed')
+
   const compBtn = li.querySelector("#labelCheckbox")
   compBtn.addEventListener('click', () => {
-    _cmpToggle(li)
+    li.classList.toggle('completed')
+    _cmpCheck(li)
   })
   const textLabel = li.querySelector(".todo-text")
   textLabel.addEventListener('click', () => {
-    _cmpToggle(li)
+    li.classList.toggle('completed')
+    _cmpCheck(li)
   })
   const delBtn = li.querySelector('.deleteBtn')
   delBtn.addEventListener('click', e => {
