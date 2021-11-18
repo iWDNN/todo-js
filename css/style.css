@@ -1,0 +1,181 @@
+*{
+  box-sizing: border-box;
+  margin:0;
+}
+body{
+  min-height: 100vh;
+  background-position: center center;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+/* login-form */
+.login-form{
+  min-width:30%;
+  padding:0.5em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login-form h3{
+  text-align: center;
+}
+.login-form input{
+  width:50%;
+  padding:1em 1em 0.4em 1em;
+  font-size:1rem;
+  border:none;
+  outline:none;
+  border-bottom: 4px solid black;
+  text-align: center;
+  transition: .8s;
+}
+.login-form input:focus{
+  width:100%;
+}
+.greeting{
+  padding:1em;
+  font-size:2em;
+}
+.greeting .msg{
+  font-size:0.9em;
+}
+
+/* clock */
+.clock{
+  font-size:4em;
+}
+
+/* todo-form */
+.todo-form{
+  min-width:50%;
+  padding:0.5em;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.todo-form h3{
+  text-align: center;
+}
+
+.todo-form input{
+  width:205px;
+  text-align: center;
+  padding:1em 1em 0.4em 1em;
+  font-size:1rem;
+  border:none;
+  outline:none;
+  border-bottom: 4px solid black;
+  transition: .2s;
+}
+.todo-form input:focus{
+  width:80%;
+}
+
+
+/* todo-list */
+.todo-list{
+  list-style-type: none;
+  padding:0.5em;
+}
+.todo-list li{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size:1.2em;
+  padding:0.2em 0;
+  transition: .2s;
+}
+.todo-list li.completed label{
+  text-decoration: line-through;
+}
+.todo-list li:hover label#labelCheckbox,
+.todo-list li:hover button{
+  opacity: 1;
+  transition: .2s ease-in-out;
+}
+.todo-list li label#labelCheckbox{
+  opacity: 0;
+  display: inline-block;
+  width:20px;
+  height:20px;
+  border:3px solid gray;
+  border-radius: 4px;
+}
+.todo-list li.completed #labelCheckbox{
+  background-color: black;
+}
+.todo-list li input{
+  display: none;
+}
+
+.todo-list .todo-text{
+  padding:0 1em;
+  font-size:1.2em;
+  font-weight: 500;
+}
+.todo-list li button{
+  opacity: 0;
+  font-size:0.9em;
+  font-weight: 600;
+  border:none;
+  background-color: transparent;
+}
+
+/* quote */
+.quote{
+  position:fixed;
+  bottom:10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform: translateY(1.5em);
+  transition: .5s;
+}
+.quote:hover span:last-child{
+  opacity: 1;
+}
+.quote:hover{
+  transform: translateY(0);
+}
+.quote span:first-child{
+  font-size:0.9em;
+  font-weight: 500;
+}
+.quote span:last-child{
+  transition: .5s;
+  margin-top:5px;
+  font-size:0.9em;
+  opacity: 0;
+}
+
+
+/* weather */
+.weather{
+  position:fixed;
+  top:1em;
+  right:1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.weather span{
+  text-align: end;
+}
+
+
+
+
+
+
+
+.hidden{
+  display: none;
+}
+
+
