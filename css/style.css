@@ -3,6 +3,7 @@
   margin:0;
   font-family: 'Noto Sans KR', sans-serif;
   box-sizing: border-box;
+  color:#fff;
 }
 .login-form.hidden{
   display: none;
@@ -23,13 +24,17 @@ body{
   align-items: center;
   flex-direction: column;
   min-height: 100vh;
+  background-position: center center;
+  background-size:cover;
+  animation: moveLR 120s infinite;
 }
 .login-form{
-  width:50%;
+  max-width:50%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  margin-bottom: 1em;
 }
 .login-form h3{
   text-align: center;
@@ -38,6 +43,7 @@ body{
   width:65%;
   padding:1em 1em 0.25em 1em;
   font-size:1em;
+  background-color: transparent;
   border:none;
   border-bottom:4px solid black;
   transition: .2s;
@@ -49,20 +55,21 @@ body{
 }
 
 .todo-container{
-  width:80%;
+  max-width:80%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  margin-bottom: 1.4em;
+}
+.todo-container .clock{
+  font-size:5em;
 }
 .todo-container .greeting{
   padding:0.5em 0 1em 0;
 }
 .todo-container .greeting span{
   font-size: 1.1em;
-}
-.todo-container .clock{
-  font-size:4em;
 }
 .todo-container .todo-form{
   width:100%;
@@ -78,14 +85,15 @@ body{
   font-family: inherit;
   padding:1em 0.5em 0.3em 0.5em;
   text-align: center;
-  width:30%;
+  width:40%;
+  background-color: transparent;
   border:none;
   border-bottom:4px solid black;
   outline:none;
   transition: .3s;
 }
 .todo-container .todo-form input:focus{
-  width:40%;
+  width:70%;
 }
 
 .todo-container .main-todo{
@@ -219,5 +227,17 @@ body{
   }
   .todo-container .weather{
     font-size:0.8em;
+  }
+}
+
+@keyframes moveLR {
+  0%{
+    background-position: 0%;
+  }
+  50%{
+    background-position: 100%;
+  }
+  100%{
+    background-position: 0%;
   }
 }
