@@ -58,6 +58,9 @@ body{
 .todo-container .greeting{
   padding:0.5em 0 1em 0;
 }
+.todo-container .greeting span{
+  font-size: 1.1em;
+}
 .todo-container .clock{
   font-size:4em;
 }
@@ -149,7 +152,7 @@ body{
   font-weight: 700;
 }
 .todo-container .quotes{
-  font-size:0.8em;
+  font-size:0.9em;
   position: fixed;
   bottom:0.5em;
   transform: translateY(1.7em);

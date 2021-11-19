@@ -19,7 +19,7 @@ if (nameLS) {
 }
 
 function _paintName(name) {
-  greeting.innerText = _timeMsg(name)
+  greeting.innerHTML = _timeMsg(name)
 }
 
 loginForm.addEventListener('submit', e => {
@@ -46,13 +46,13 @@ function _timeMsg(name) {
   const hour = new Date().getHours()
   let msg = ''
   if (hour >= 0 && hour <= 6)
-    msg = `편안한 새벽 되세요, ${name}`
+    msg = `편안한 새벽 되세요, <span>${name}</span>`
   else if (hour > 6 && hour <= 12)
-    msg = `좋은 아침 입니다, ${name}`
+    msg = `좋은 아침 입니다, <span>${name}</span>`
   else if (hour > 12 && hour <= 18)
-    msg = `나른한 오후 힘내세요, ${name}`
+    msg = `나른한 오후 힘내세요, <span>${name}</span>`
   else if (hour > 18 && hour <= 24)
-    msg = `편안한 저녁 되세요, ${name}`
+    msg = `편안한 저녁 되세요, <span>${name}</span>`
 
   return msg
 }

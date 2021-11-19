@@ -69,6 +69,15 @@ function _paintMaintodo(mainTodo) {
   deleteBtn.addEventListener('click', () => {
     todoEl.remove()
     localStorage.setItem(MAIN_TODO_KEY, null)
+    gsap.to(mainTodoCt, .3, {
+      opacity: 0,
+      display: 'none'
+    });
+    gsap.to(todoFormCt, .3, {
+      delay: .3,
+      opacity: 1,
+      display: 'flex'
+    });
   })
   todoToLS(mainTodo)
   todoCt.appendChild(todoEl)
