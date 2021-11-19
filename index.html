@@ -5,9 +5,15 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- font-awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
     integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- gsap -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"
+    integrity="sha512-cdV6j5t5o24hkSciVrb8Ki6FveC2SgwGfLE31+ZQRHAeSRxYhAQskLkq3dLm8ZcWe1N3vBOEYmmbhzf7NTtFFQ=="
+    crossorigin="anonymous"></script>
+
   <link rel="stylesheet" href="./css/style.css">
   <script defer src="./js/greetings.js"></script>
   <script defer src="./js/clock.js"></script>
@@ -15,29 +21,36 @@
   <script defer src="./js/background.js"></script>
   <script defer src="./js/todo.js"></script>
   <script defer src="./js/weather.js"></script>
-  <title>momentum</title>
+  <title>Momentum</title>
 </head>
 
 <body>
-  <h2 class="clock" id="clock"></h2>
-  <form class="login-form" id="login-form" class="hidden">
+  <form id="login-form" class="login-form">
     <h3>안녕, 너의 이름은 뭐니?</h3>
-    <input autofocus required maxlength="15" type="text">
-
+    <input required autofocus type="text" maxlength=15>
   </form>
-  <h1 id="greeting" class="greeting hidden"></h1>
-  <form class="todo-form" id="todo-form">
-    <h3>오늘 중요한 할 일는 뭔가요?</h3>
-    <input required type="text">
-  </form>
-  <ul class="todo-list" id="todo-list"></ul>
-  <div class="quote" id="quote">
-    <span></span>
-    <span></span>
-  </div>
-  <div class="weather" id="weather">
-    <span></span>
-    <span></span>
+  <div class="todo-container hidden">
+    <h1 id="clock" class="clock">00:00:00</h1>
+    <h2 id="greeting" class="greeting"></h2>
+    <form id="todo-form" class="todo-form">
+      <h3>오늘 중요한 할 일은 뭔가요?</h3>
+      <input required type="text">
+    </form>
+    <div id="main-todo" class="main-todo">
+      <h4>TODAY</h4>
+      <div id="todo" class="todo"></div>
+    </div>
+    <div id="quotes" class="quotes">
+      <span></span>
+      <span></span>
+    </div>
+    <div id="weather" class="weather">
+      <div class="weather-temp">
+        <img src="" alt="weather">
+        <span></span>
+      </div>
+      <span class="city"></span>
+    </div>
   </div>
 </body>
 

@@ -1,56 +1,58 @@
-const loginForm = document.querySelector('#login-form')
-const loginInput = document.querySelector('#login-form input')
-const greeting = document.querySelector('#greeting')
+const loginForm = document.getElementById('login-form')
+const nameQuestion = loginForm.querySelector('h3')
+const nameInput = loginForm.querySelector('input')
 
-const clockInGreetings = document.querySelector("h2#clock")
-const toDoFormInGreetings = document.getElementById("todo-form")
-const quotesInGreetings = document.getElementById("quote")
-const weatherInGreetings = document.getElementById("weather")
+const todoContainer = document.querySelector('.todo-container')
+const greeting = todoContainer.querySelector('#greeting')
 
+const HIDDEN_CLASSNAME = 'hidden'
+const NAME_KEY = 'name'
 
-const HIDDEN_CLASSNAME = "hidden"
-const USERNAME_KEY = "username"
-
-//loginform - document
-
-function onLoginSubmit(event) {
-  event.preventDefault()
+const nameLS = localStorage.getItem(NAME_KEY)
+if (nameLS) {
   loginForm.classList.add(HIDDEN_CLASSNAME)
-  localStorage.setItem(USERNAME_KEY, loginInput.value)
-  _paintGreetings(loginInput.value)
+  _paintName(nameLS)
+  gsap.to(todoContainer, 1, {
+    opacity: 1,
+    display: 'flex'
+  });
 }
 
-function _paintGreetings(username) {
-  greeting.innerHTML = `<span class="msg">안녕하세요,</span> ${username}<span class="msg"> 님</span>`
-  greeting.classList.remove(HIDDEN_CLASSNAME)
-  loginForm.classList.add(HIDDEN_CLASSNAME)
-  _removeWithoutLoginForm()
+function _paintName(name) {
+  greeting.innerText = _timeMsg(name)
 }
 
-loginForm.addEventListener('submit', onLoginSubmit)
+loginForm.addEventListener('submit', e => {
+  e.preventDefault()
+  gsap.to(loginForm, .6, {
+    opacity: 0,
+    display: 'none'
+  });
+  gsap.to(todoContainer, .6, {
+    delay: .6,
+    opacity: 1,
+    display: 'flex'
+  });
+  const name = nameInput.value
+  _paintName(name)
+  nameInput.value = ''
+  _nameToLS(name)
+})
 
-// loginform - localStorage
-const savedUsername = localStorage.getItem(USERNAME_KEY)
-
-if (savedUsername === null) {
-  loginForm.classList.remove(HIDDEN_CLASSNAME)
-  _addWithoutLoginForm()
-} else {
-  _paintGreetings(savedUsername)
+function _nameToLS(name) {
+  localStorage.setItem(NAME_KEY, name)
 }
+function _timeMsg(name) {
+  const hour = new Date().getHours()
+  let msg = ''
+  if (hour >= 0 && hour <= 6)
+    msg = `편안한 새벽 되세요, ${name}`
+  else if (hour > 6 && hour <= 12)
+    msg = `좋은 아침 입니다, ${name}`
+  else if (hour > 12 && hour <= 18)
+    msg = `나른한 오후 힘내세요, ${name}`
+  else if (hour > 18 && hour <= 24)
+    msg = `편안한 저녁 되세요, ${name}`
 
-
-
-
-function _addWithoutLoginForm() {
-  toDoFormInGreetings.classList.add(HIDDEN_CLASSNAME)
-  clockInGreetings.classList.add(HIDDEN_CLASSNAME)
-  quotesInGreetings.classList.add(HIDDEN_CLASSNAME)
-  weatherInGreetings.classList.add(HIDDEN_CLASSNAME)
-}
-function _removeWithoutLoginForm() {
-  toDoFormInGreetings.classList.remove(HIDDEN_CLASSNAME)
-  clockInGreetings.classList.remove(HIDDEN_CLASSNAME)
-  quotesInGreetings.classList.remove(HIDDEN_CLASSNAME)
-  weatherInGreetings.classList.remove(HIDDEN_CLASSNAME)
+  return msg
 }

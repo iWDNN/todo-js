@@ -9,7 +9,7 @@ const quotes = [
   },
   {
     quote: "행복한지 따져보는 건 우울해지는 지름길이야.",
-    author: "우리의20세기"
+    author: "우리의 20세기"
   },
   {
     quote: "단지 두려움 때문에 좋아하는 일을 포기하지 마.",
@@ -40,9 +40,10 @@ const quotes = [
     author: "주토피아"
   },
 ]
+const quotesEl = document.querySelector('#quotes')
+const quote = quotesEl.querySelector('span:first-child')
+const author = quotesEl.querySelector('span:last-child')
 
-const quote = document.querySelector('#quote span:first-child')
-const author = document.querySelector('#quote span:last-child')
 
 const todaysQuote = quotes[Math.floor(Math.random() * quotes.length)]
 
