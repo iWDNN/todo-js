@@ -1,19 +1,19 @@
 const images = ["0.jpeg", "1.jpeg", "2.jpeg", "3.jpeg"]
 
 
-document.body.style.backgroundImage = `url('./img/${_timeMsg()}')`
+document.body.style.backgroundImage = `url('./img/${_timeBg()}')`
 
-function _timeMsg() {
+function _timeBg() {
   const hour = new Date().getHours()
-  let imgUrl = ''
+  let imgNum = ''
   if (hour >= 0 && hour <= 6)
-    imgUrl = '3.jpeg'
+    imgNum = '3.jpeg'
   else if (hour > 6 && hour <= 12)
-    imgUrl = '0.jpeg'
+    imgNum = '0.jpeg'
   else if (hour > 12 && hour <= 18)
-    imgUrl = '1.jpeg'
+    imgNum = '1.jpeg'
   else if (hour > 18 && hour <= 24)
-    imgUrl = '2.jpeg'
+    imgNum = '2.jpeg'
 
-  return imgUrl
+  return imgNum
 }
