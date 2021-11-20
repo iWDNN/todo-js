@@ -45,7 +45,7 @@ body{
   font-size:1em;
   background-color: transparent;
   border:none;
-  border-bottom:4px solid black;
+  border-bottom:4px solid white;
   transition: .2s;
   text-align: center;
   outline: none;
@@ -88,7 +88,7 @@ body{
   width:40%;
   background-color: transparent;
   border:none;
-  border-bottom:4px solid black;
+  border-bottom:4px solid white;
   outline:none;
   transition: .3s;
 }
@@ -123,11 +123,11 @@ body{
   display: inline-block;
 	width:1em;
   height:1em;
-	border: 2px solid #bcbcbc;
+	border: 3px solid white;
 	cursor: pointer;
 }
 .todo-container .main-todo .todo input:checked + .checkbox-css{
-  background-color: black;
+  background-color: white;
 }
 .todo-container .main-todo .todo .main-label{
   cursor: pointer;
@@ -146,7 +146,7 @@ body{
   left: 0;
   width: 100%;
   height: 3px;
-  background: black;
+  background: white;
   animation-name: strike;
   animation-duration: .5s;
   animation-timing-function: ease-in-out;
@@ -195,7 +195,102 @@ body{
   font-size: 0.8em;
 }
 
+.todo-container .todo-list-container{
+  position: fixed;
+  bottom:0.5em;
+  right:0.5em;
+}
+.todo-container .todo-list-container .todo-modal{
+  background-color: rgba(0,0,0,0.55);
+  padding:0.5em;
+  border-radius: 10px;
+  opacity: 0.8;
+  display: flex;
+  flex-direction: column;
+  transform: translateX(130%);
+}
+.todo-container .todo-list-container .todo-modal .todo-list-form{
 
+}
+.todo-container .todo-list-container .todo-modal .todo-list-form input{
+  width:100%;
+  padding:0.15em 0.5em;
+  border-radius: 5px;
+  border: none;
+  background-color: rgba(0,0,0,0.6);
+  outline:none;
+  color:white;
+}
+.todo-container .todo-list-container .todo-modal .todo-list{
+  padding-left: 1em;
+  list-style-type: none;
+}
+.todo-container .todo-list-container .todo-modal .todo-list li{
+  font-size:0.85em;
+  margin:2px 0;
+}
+.todo-container .todo-list-container .todo-list-btn{
+  margin-top:2px;
+  border: none;
+  background-color: transparent;
+  float: right;
+  font-weight: 700;
+  transition: .2s;
+  padding:0.25em 0.5em;
+  border-radius: 5px;
+}
+.todo-container .todo-list-container .todo-list-btn.active{
+  background-color:white;
+  color:rgba(0,0,0,0.8);
+}
+.todo-list li{
+  display: flex;
+  justify-content: space-between;
+}
+.todo-list li input{
+  display: none;
+}
+.todo-list li .checkbox-css{
+  display: inline-block;
+	width:1em;
+  height:1em;
+	border: 3px solid rgba(0,0,0,0.6);
+	cursor: pointer;
+}
+.todo-list li input:checked + .checkbox-css{
+  background-color: #fff;
+}
+.todo-list li .main-label{
+  width:100%;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: 500;
+  margin:0 0.5em 0 0.9em;
+  text-align: start;
+}
+.todo-list li .main-label.completed{
+  position: relative;
+  transition: .5s;
+}
+.todo-list li .main-label.completed:after{
+  content: ' ';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  height: 3px;
+  background: white;
+  animation-name: strike;
+  animation-duration: .5s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards; 
+} 
+.todo-list li button{
+  border: none;
+  background-color: transparent;
+  font-weight: 700;
+  color:white;
+}
 
 @keyframes strike{
   0%   { width : 0; }

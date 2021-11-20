@@ -21,6 +21,7 @@
   <script defer src="./js/background.js"></script>
   <script defer src="./js/todo.js"></script>
   <script defer src="./js/weather.js"></script>
+  <script defer src="./js/todoList.js"></script>
   <title>Momentum</title>
 </head>
 
@@ -50,6 +51,15 @@
         <span></span>
       </div>
       <span class="city"></span>
+    </div>
+    <div id="todo-list-container" class="todo-list-container">
+      <div id="todo-modal" class="todo-modal hidden">
+        <form id="todo-list-form" class="todo-list-form">
+          <input required placeholder="할 일을 작성해주세요" type="text">
+        </form>
+        <ul id="todo-list" class="todo-list"></ul>
+      </div>
+      <button id="todo-list-btn" class="todo-list-btn">todo</button>
     </div>
   </div>
 </body>
