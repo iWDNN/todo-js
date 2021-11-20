@@ -87,7 +87,6 @@ function updateLS() {
 
 
 todoListBtn.addEventListener('click', () => {
-  console.dir(todoModal)
   todoListBtn.classList.toggle('active')
   if (todoListBtn.classList.contains('active')) {
     gsap.to(todoModal, .9, {
